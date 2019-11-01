@@ -1,9 +1,14 @@
 function getCard(){
     $('#id-card-detail').html('')
+    Swal.showLoading()
     $.ajax({
-        url: `${baseUrl}/tarots`
+        url: `${baseUrl}/tarots`,
+        headers: {
+          token: localStorage.getItem('token')
+        }
     })
     .done(({cards}) =>{
+        Swal.close()
         const { name, desc, meaning_up, meaning_rev } = cards[0]
 
         let random = Math.round(Math.random()*1)
@@ -26,7 +31,6 @@ function getCard(){
                 <p style="color: rgba(87, 87, 87, 0.623);" >${meaning_rev}</p>
             </div>`
         }
-
 
         $('#id-card-detail').append(`
        

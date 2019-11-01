@@ -13,19 +13,47 @@ seeDetail = (event, zodiac) => {
 
 getFortune = () => {
   $('#cookie-fortune').empty()
+  Swal.showLoading()
   $.ajax({
       url: `${baseUrl}/cookies/fortune`,
-      method: 'get'
+      method: 'get',
+      headers: {
+        token: localStorage.getItem('token')
+      }
     })
     .done(({
       fortune
     }) => {
+      Swal.close()
       $('#cookie-fortune').append(fortune)
     })
     .fail(showAlert)
 }
 
 $(document).ready(function () {
+
+  if(!localStorage.getItem('token')){
+    $("#homepage").hide()
+    $("#nav").hide()
+    $(".login-wrap").show()
+  } else {
+    $(".login-wrap").hide()
+    $("#homepage").show()
+    $("#nav").show()
+  }
+
+    $('#register').submit(function(event){
+      event.preventDefault()
+      console.log('masuk register')
+      manualSignUp()
+    })
+
+    $('#login').submit(function(event){
+      event.preventDefault()
+      console.log('masuk login')
+      manualSignIn()
+    })
+
   $('#cookie-page').hide()
 
   $('#fortune-cookie-button').click(() => {

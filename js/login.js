@@ -1,42 +1,45 @@
-$(document).ready(function(){
-    console.log('masuk doc')
+// $(document).ready(function(){
+//     console.log('masuk doc')
   
-    if(!localStorage.getItem('token')){
-      $("#home-page").hide()
-      $(".login-wrap").show()
-    } else {
-      $(".login-wrap").hide()
-      $("#home-page").show()
-    }
+//     if(!localStorage.getItem('token')){
+//       $("#homepage").hide()
+//       $(".login-wrap").show()
+//     } else {
+//       $(".login-wrap").hide()
+//       $("#homepage").show()
+//     }
   
-      $('#register').submit(function(event){
-        event.preventDefault()
-        console.log('masuk register')
-        manualSignUp()
-      })
+//       $('#register').submit(function(event){
+//         event.preventDefault()
+//         console.log('masuk register')
+//         manualSignUp()
+//       })
   
-      $('#login').submit(function(event){
-        event.preventDefault()
-        console.log('masuk login')
-        manualSignIn()
-      })
+//       $('#login').submit(function(event){
+//         event.preventDefault()
+//         console.log('masuk login')
+//         manualSignIn()
+//       })
   
   
   
-  });
+//   });
   
   
   function onSuccess(googleUser) {
     const id_token = googleUser.getAuthResponse().id_token;
+    Swal.showLoading()
     $.ajax({
       method:"POST",
       url:"http://localhost:3000/users/googleSignIn",
       data: {id_token}
     })
     .done(function(response) {
+      Swal.close()
       console.log('done');
       $(".login-wrap").hide()
-      $('#home-page').show()
+      $("#nav").show()
+      $('#homepage').show()
       localStorage.setItem('token', response.token)
     })
     .fail(function(jqXHR, textStatus, errorThrown){    
@@ -64,22 +67,29 @@ $(document).ready(function(){
   }
   
   function signOut() {
+    localStorage.removeItem('token')
+    console.log('masuk sign out')
+      $("#homepage").hide()
+      $("#nav").hide()
+      $('#cookie-page').hide()
+      $('#detail-page').hide()
+      $('#tarot-page').hide()
+      
+    $(".login-wrap").show()
     if(gapi.auth2 !== undefined){
       var auth2 = gapi.auth2.getAuthInstance();
       auth2.signOut().then(function () {
         console.log('User signed out.');
       });
     }
-      localStorage.removeItem('token')
-      $(".login-wrap").show()
-      $('#home-page').hide()
-    }
+  }
   
   function manualSignUp() {
-  
+    Swal.showLoading()
     const email = $('#email-signup').val()
     const pass = $('#pass-signup').val()
     console.log(email)
+    
       $.ajax({
         method:"POST",
         url:"http://localhost:3000/users/manualSignUp",
@@ -89,10 +99,11 @@ $(document).ready(function(){
         }
       })
       .done(function(response) {
+        Swal.close()
         console.log('done');
         localStorage.setItem('token', response.token)
         $(".login-wrap").hide()
-        $("#home-page").show()
+        $("#homepage").show()
   
       })
       .fail(function(jqXHR, textStatus, errorThrown){    
@@ -109,6 +120,7 @@ $(document).ready(function(){
   function manualSignIn() {
     const email = $('#email-login').val()
     const pass = $('#pass-login').val()
+    Swal.showLoading()
     // console.log(email,pass)
     $.ajax({
       method:"POST",
@@ -119,14 +131,26 @@ $(document).ready(function(){
       }
     })
     .done(function(response) {
+      Swal.close()
       // console.log(response)
       console.log('done');
       $(".login-wrap").hide()
-      $('#home-page').show()
+      $("#nav").show()
+      $('#homepage').show()
       localStorage.setItem('token', response.token)
     })
-    .fail(function(jqXHR, textStatus, errorThrown){    
-      console.log(textStatus);
+    .fail(function(err){
+      Swal.close()
+      let msg = err.responseJSON.errors
+      let text = ""
+      msg.forEach(el => {
+        text += el + ', '
+      });
+      Swal.fire({
+        type:'error',
+        title: 'Oops....',
+        text,
+      })
     })
     .always(function() {
       $("#email-login").val('')
