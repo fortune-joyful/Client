@@ -1,10 +1,15 @@
 function ramalanZodiac(event, day, zodiac) {
     // console.log(day, zodiac)
     event.preventDefault()
+    Swal.showLoading()
     $.ajax(`http://localhost:3000/horoscope/${day}/${zodiac}`, {
-            method: "GET"
+            method: "GET",
+            headers: {
+              token: localStorage.getItem('token')
+            }
         })
         .done(respone => {
+            Swal.close()
             // console.log(respone.data);
             $(".ramalan").empty()
             if (day === 'today') {
@@ -28,10 +33,15 @@ function ramalanZodiac(event, day, zodiac) {
 
 function detailZodiac(event, zodiac) {
     event.preventDefault()
+    Swal.showLoading()
     $.ajax(`http://localhost:3000/detail/${zodiac}`, {
-            method: "GET"
+            method: "GET",
+            headers: {
+              token: localStorage.getItem('token')
+            }
         })
         .done(respone => {
+            Swal.close()
             // console.log(respone.data)
             let listMatch = [];
             for (let i = 0; i < respone[0].compatibility.length; i++) {
