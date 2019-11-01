@@ -1,18 +1,7 @@
-const url = 'http://localhost:3000'
-
-$(document).ready(() => {
-
-  $('.tr-image').click( function (e){
-      e.preventDefault()
-      getCard()
-  })
-
-})
-
 function getCard(){
     $('#id-card-detail').html('')
     $.ajax({
-        url: `${url}/tarots`
+        url: `${baseUrl}/tarots`
     })
     .done(({cards}) =>{
         const { name, desc, meaning_up, meaning_rev } = cards[0]
