@@ -57,7 +57,7 @@ $(document).ready(function(){
       'width': 380,
       'height': 50,
       'longtitle': true,
-      'theme': 'dark',
+      'theme': 'light',
       'onsuccess': onSuccess,
       'onfailure': onFailure
     });
