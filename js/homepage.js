@@ -33,7 +33,20 @@ $(document).ready(function(){
   })
 
   $('.navbar-brand').click(() => {
+    $('#tarot-page').hide()
     $('#cookie-page').hide()
     $('#homepage').show()
   })
+
+  $('.tr-image').click( function (e){
+    e.preventDefault()
+    getCard()
+  })
+
+  $('#to-tarot-page').click( function(e){
+    e.preventDefault()
+    $('#homepage').hide()
+    $('#tarot-page').show()
+  })
+
 })

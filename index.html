@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="homepage.css">
+    <link rel="stylesheet" href="tarot.css">
+    <link href="https://fonts.googleapis.com/css?family=Lakki+Reddy|Mali&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Signika&display=swap" rel="stylesheet">
+    <title>Fortuna</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-light bg-light">
+      <div class="container">
+        <div class="navbar-brand" href="">
+          <h2 class="logo">FORTUNA</h2>
+        </div>
+      </div>
+    </nav>
+    <div id="homepage">
+      <div class="container text-centered">
+        <h2 class="m-3">Choose your Zodiac Sign</h2>
+        <div class="row mt-4">
+          <div onclick="seeDetail('aries')" class="col-sm zodiac-cell">
+            <img src="assets/aries.png" class="square-img">
+            <div class="mt-3">Aries</div>
+            <div class="date-range"><small>Mar 21 - Apr 19</small></div>
+          </div>
+          <div onclick="seeDetail('taurus')" class="col-sm zodiac-cell">
+            <img src="assets/taurus.png" class="square-img">
+            <div class="mt-3">Taurus</div>
+            <div class="date-range"><small>Apr 20 - May 20</small></div>
+          </div>
+          <div onclick="seeDetail('gemini')" class="col-sm zodiac-cell">
+            <img src="assets/gemini.png" class="square-img">
+            <div class="mt-3">Gemini</div>
+            <div class="date-range"><small>May 21 - Jun 20</small></div>
+          </div>
+          <div onclick="seeDetail('cancer')" class="col-sm zodiac-cell">
+            <img src="assets/cancer.png" class="square-img">
+            <div class="mt-3">Cancer</div>
+            <div class="date-range"><small>Jun 21 - Jul 22</small></div>
+          </div>
+          <div onclick="seeDetail('leo')" class="col-sm zodiac-cell">
+            <img src="assets/leo.png" class="square-img">
+            <div class="mt-3">Leo</div>
+            <div class="date-range"><small>Jul 23 - Aug 22</small></div>
+          </div>
+          <div onclick="seeDetail('virgo')" class="col-sm zodiac-cell">
+            <img src="assets/virgo.png" class="square-img">
+            <div class="mt-3">Virgo</div>
+            <div class="date-range"><small>Aug 23 - Sep 22</small></div>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div onclick="seeDetail('libra')" class="col-sm zodiac-cell">
+            <img src="assets/libra.png" class="square-img">
+            <div class="mt-3">Libra</div>
+            <div class="date-range"><small>Sep 23 - Oct 22</small></div>
+          </div>
+          <div onclick="seeDetail('scorpio')" class="col-sm zodiac-cell">
+            <img src="assets/scorpio.png" class="square-img">
+            <div class="mt-3">Scorpio</div>
+            <div class="date-range"><small>Oct 23 - Nov 21</small></div>
+          </div>
+          <div onclick="seeDetail('sagittarius')" class="col-sm zodiac-cell">
+            <img src="assets/sagittarius.png" class="square-img">
+            <div class="mt-3">Sagittarius</div>
+            <div class="date-range"><small>Nov 22 - Dec 21</small></div>
+          </div>
+          <div onclick="seeDetail('capricorn')" class="col-sm zodiac-cell">
+            <img src="assets/capricorn.png" class="square-img">
+            <div class="mt-3">Capricorn</div>
+            <div class="date-range"><small>Dec 22 - Jan 19</small></div>
+          </div>
+          <div onclick="seeDetail('aquarius')" class="col-sm zodiac-cell">
+            <img src="assets/aquarius.png" class="square-img">
+            <div class="mt-3">Aquarius</div>
+            <div class="date-range"><small>Jan 20 - Feb 18</small></div>
+          </div>
+          <div onclick="seeDetail('pisces')" class="col-sm zodiac-cell">
+            <img src="assets/pisces.png" class="square-img">
+            <div class="mt-3">Pisces</div>
+            <div class="date-range"><small>Feb 19 - Mar 20</small></div>
+          </div>
+        </div>
+      </div>
+      <div class="container text-centered mt-4">
+        <span class="m-2">
+          <button id="fortune-cookie-button" type="button" class="btn btn-primary btn-main btn-lg is-centered">Crack Fortune Cookie</button>
+        </span>
+        <span class="m-2">
+          <button id="to-tarot-page" type="button" class="btn btn-primary btn-main btn-lg is-centered">Pick a Tarot Card</button>
+        </span>
+      </div>
+    </div>
+
+    <div id="cookie-page">
+      <div class="banner text-centered">
+        <h2>Fortune Cookie</h2>
+      </div>
+      <div class="container">
+        <div class="cookie-container is-centered">
+          <p>Need a little bit of sage advice or a quick pick-me-up?<br>Get the wisdom of your fortune cookie without the calories!</p>
+          <hr>
+          <img class="cookie-image" src="http://www.clker.com/cliparts/5/F/G/K/w/e/fortune-cookie-hi.png">
+          <!-- Button trigger modal -->
+          <div>
+            <button id="crack-button" type="button" class="btn btn-primary btn-main" data-toggle="modal" data-target="#cookie-modal">
+              Crack
+            </button>
+          </div>
+    
+          <!-- Modal -->
+          <div class="modal fade cookie-modal" id="cookie-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div id="cookie-fortune" class="modal-body">
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- TAROT PAGE -->
+
+    <div id="tarot-page" style="display: none;">
+        <h1 class="text-center" >Pick Your Tarot Card</h1>
+        <div class="tr-container d-flex flex-column align-items-center justify-content-around">
+            <div class="tr-desk d-flex justify-content-between align-items-center px-2">
+                <div class="tr-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQjNSfKVJv85GQoV9vLzR2p3d_Rhs4lT9nDRoAAd5TUim0L0tZv" alt="">
+                </div>
+                <div class="tr-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQjNSfKVJv85GQoV9vLzR2p3d_Rhs4lT9nDRoAAd5TUim0L0tZv" alt="">
+                </div>
+                <div class="tr-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQjNSfKVJv85GQoV9vLzR2p3d_Rhs4lT9nDRoAAd5TUim0L0tZv" alt="">
+                </div>
+                <div class="tr-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQjNSfKVJv85GQoV9vLzR2p3d_Rhs4lT9nDRoAAd5TUim0L0tZv" alt="">
+                </div>
+                <div class="tr-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQjNSfKVJv85GQoV9vLzR2p3d_Rhs4lT9nDRoAAd5TUim0L0tZv" alt="">
+                </div>
+                <div class="tr-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQjNSfKVJv85GQoV9vLzR2p3d_Rhs4lT9nDRoAAd5TUim0L0tZv" alt="">
+                </div>
+                <div class="tr-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQjNSfKVJv85GQoV9vLzR2p3d_Rhs4lT9nDRoAAd5TUim0L0tZv" alt="">
+                </div>
+                <div class="tr-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQjNSfKVJv85GQoV9vLzR2p3d_Rhs4lT9nDRoAAd5TUim0L0tZv" alt="">
+                </div>
+                <div class="tr-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQjNSfKVJv85GQoV9vLzR2p3d_Rhs4lT9nDRoAAd5TUim0L0tZv" alt="">
+                </div>
+                <div class="tr-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQjNSfKVJv85GQoV9vLzR2p3d_Rhs4lT9nDRoAAd5TUim0L0tZv" alt="">
+                </div>
+                <div class="tr-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQjNSfKVJv85GQoV9vLzR2p3d_Rhs4lT9nDRoAAd5TUim0L0tZv" alt="">
+                </div>
+            </div>
+
+            
+                <div id="id-card-detail" class="tr-card-detail d-flex">
+                <!-- <div class="tr-detail-img d-flex align-items-center justify-content-center">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQjNSfKVJv85GQoV9vLzR2p3d_Rhs4lT9nDRoAAd5TUim0L0tZv" alt="">
+                        <span >Lorem ipsum dolor sit amet.</span>
+                        style="transform: rotate(-180deg);"
+                </div>
+                <div class="tr-detail-content">
+                    <h1>Card Name</h1>
+                    <p class="text-white">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero eligendi, corrupti explicabo excepturi maxime ea nostrum fugiat qui sunt error.</p>
+                    <div class="tr-up-down">
+                        <div class="d-flex justify-content-around align-items-start"> 
+                            <div class="tr-up">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae earum itaque reprehenderit vel? Dolorem mollitia esse perferendis culpa, fugit modi.</p>
+                            </div>
+                            <div class="tr-down">
+                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor inventore maiores minus perferendis facere quasi in necessitatibus nulla odio rem?</p>
+                            </div>
+                        </div>
+                        <div class="tr-footer">
+                            
+                        </div>
+                    </div>
+                    <div>
+                    </div>
+                </div> -->
+            </div>
+            </div>
+        </div>
+
+        
+    </div>
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="js/homepage.js"></script>
+    <script src="js/tarot.js"></script>
+  </body>
+</html>
