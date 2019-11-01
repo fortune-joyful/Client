@@ -1,0 +1,122 @@
+#tarot-page {
+    width: 100%;
+    height: 100vh;
+    padding-top: 20px;
+    background: #ad5389;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #3c1053, #ad5389);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #3c1053, #ad5389); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.tr-container{
+    width: 100%;
+    height: 80%;
+}
+
+#tarot-page h1 {
+    font-size: 50px;
+    font-family: 'Lakki Reddy', cursive;
+}
+
+.tr-desk {
+    width: 50%;
+    height: 120px;
+    border-radius: 15px;
+    background-image: url('./public/stardust.png');
+    box-shadow: 5px 18px 25px -5px rgba(0, 0, 0, 0.459);
+    margin-bottom: 20px;
+}
+
+.tr-image img{
+    height: 90px;
+    width: auto;
+    border-radius: 5px;
+    transition: 500ms;
+    cursor: pointer;
+}
+
+.tr-image img:hover {
+    margin-bottom: 50px;
+}
+
+.tr-card-detail{
+    min-height: 300px;
+    width: 80%;
+    background-image: url('./public/stardust.png');
+    border-radius: 15px;
+    box-shadow: 5px 18px 25px -5px rgba(187, 18, 209, 0.308);
+}
+
+.tr-detail-img{
+    height: 100%;
+    width: 15%;
+}
+
+.tr-detail-img img{
+    width: 150px;
+    height: auto;
+    cursor: pointer;
+    opacity: 0.9;
+    transition: 1000ms;
+    border-radius: 15px;
+}
+
+.tr-detail-img span{
+    position: absolute;
+    color: rgb(238, 238, 238);
+    width: 100px;
+    line-height: 23px;
+    text-align: center;
+    font-size: 30px;
+    text-shadow: 5px 5px 5px #000000;
+    font-family: 'Lakki Reddy', cursive;
+}
+
+.tr-detail-content{
+    width: 85%;
+}
+
+.tr-detail-content h1{
+    text-align: center;
+    height: 40px;
+    color: white;
+}
+
+.tr-detail-content p{
+    text-align: center;
+    font-family: 'Mali', cursive;
+}
+
+.tr-up-down{
+    height: 60%;
+}
+
+.tr-up-down .tr-up, .tr-down{
+    width: 45%;
+    min-height: 80%;
+    border-radius: 15px;
+    padding: 5px;
+    overflow: auto;
+    background-color: honeydew;
+    box-shadow: 10px 10px 35px -3px rgba(255, 255, 255, 0.336);
+}
+
+.tr-footer{
+    width: 100%;
+    height: 30px;
+}
+
+.tr-up{
+    background: #a8ff78;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #78ffd6, #a8ff78);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #78ffd6, #a8ff78); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+}
+
+.tr-down{
+    
+    background: #bc4e9c;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #f80759, #bc4e9c);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #f80759, #bc4e9c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
